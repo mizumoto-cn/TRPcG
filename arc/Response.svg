@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<svg width="598" height="251" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+<svg width="481" height="220" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
  <defs>
   <style type="text/css">ul { margin-top: 0px; margin-bottom: 10px; }
 ol { margin-top: 0px; margin-bottom: 10px; }
@@ -38,8 +38,7 @@ h3 { font-size: 1.17em; font-weight: bold; }
 p { margin-top: 0; margin-bottom: 1rem; }
 a { color: #007bff; }</style>
   <style type="text/css">@import url(https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap);
-@import url(https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap);
-@import url(https://fonts.googleapis.com/css2?family=-apple-system,+BlinkMacSystemFont,+&quot;Segoe+UI&quot;,+Helvetica,+Arial,+sans-serif,+&quot;Apple+Color+Emoji&quot;,+&quot;Segoe+UI+Emoji:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap);</style>
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap);</style>
  </defs>
  <switch>
   <g id="svg_3" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"/>
@@ -49,93 +48,146 @@ a { color: #007bff; }</style>
  </switch>
  <g class="layer">
   <title>Layer 1</title>
-  <g id="svg_6" transform="matrix(1 0 0 1 0 0)">
+  <g id="svg_6">
    <g id="svg_7">
-    <path d="m141.52,87l153.34,0c79.73,0 79.73,40 0,40l-153.34,0c-79.73,0 -79.73,-40 0,-40" fill="#feff99" id="svg_8" stroke="#000000" stroke-miterlimit="10"/>
-    <path d="m141.52,87l153.34,0c79.73,0 79.73,40 0,40l-153.34,0c-79.73,0 -79.73,-40 0,-40" fill="none" id="svg_9" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m141.6,70l153.33,0c79.73,0 79.73,40 0,40l-153.33,0c-79.74,0 -79.74,-40 0,-40" fill="#feff99" id="svg_8" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m141.6,70l153.33,0c79.73,0 79.73,40 0,40l-153.33,0c-79.74,0 -79.74,-40 0,-40" fill="none" id="svg_9" stroke="#000000" stroke-miterlimit="10"/>
    </g>
    <g id="svg_10">
     <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_11" text-anchor="middle">
-     <text id="svg_12" x="217.69" y="111.5">Header</text>
+     <text id="svg_12" x="217.76" y="94.5">Header</text>
     </g>
    </g>
    <g id="svg_13">
-    <path d="m409.52,87l133.34,0c69.33,0 69.33,40 0,40l-133.34,0c-69.33,0 -69.33,-40 0,-40" fill="#f0ffff" id="svg_14" stroke="#000000" stroke-miterlimit="10"/>
-    <path d="m409.52,87l133.34,0c69.33,0 69.33,40 0,40l-133.34,0c-69.33,0 -69.33,-40 0,-40" fill="none" id="svg_15" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m383.81,70l68.89,0c35.82,0 35.82,40 0,40l-68.89,0c-35.82,0 -35.82,-40 0,-40" fill="#f0ffff" id="svg_14" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m383.81,70l68.89,0c35.82,0 35.82,40 0,40l-68.89,0c-35.82,0 -35.82,-40 0,-40" fill="none" id="svg_15" stroke="#000000" stroke-miterlimit="10"/>
    </g>
    <g id="svg_16">
     <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_17" text-anchor="middle">
-     <text id="svg_18" x="475.69" y="111.5">Body</text>
+     <text id="svg_18" x="417.76" y="94.5">Body</text>
     </g>
    </g>
    <g id="svg_19">
-    <path d="m31.78,171l54.44,0c28.31,0 28.31,40 0,40l-54.44,0c-28.31,0 -28.31,-40 0,-40" fill="#cdffcc" id="svg_20" stroke="#000000" stroke-miterlimit="10"/>
-    <path d="m31.78,171l54.44,0c28.31,0 28.31,40 0,40l-54.44,0c-28.31,0 -28.31,-40 0,-40" fill="none" id="svg_21" stroke="#000000" stroke-miterlimit="10"/>
+    <rect fill="#fdd4fd" height="40" id="svg_20" rx="11" ry="11" stroke="#000000" width="80" x="0.26" y="68"/>
    </g>
-   <g id="svg_22">
-    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_23" text-anchor="middle">
-     <text id="svg_24" x="58.5" y="195.5">CompressType</text>
+   <g id="svg_21">
+    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_22" text-anchor="middle">
+     <text id="svg_23" x="39.76" y="92.5">Header Info</text>
     </g>
    </g>
-   <g id="svg_25">
-    <path d="m119,171l27.51,0c14.3,0 14.3,40 0,40l-27.51,0c-14.3,0 -14.3,-40 0,-40" fill="#cdffcc" id="svg_26" stroke="#000000" stroke-miterlimit="10"/>
-    <path d="m119,171l27.51,0c14.3,0 14.3,40 0,40l-27.51,0c-14.3,0 -14.3,-40 0,-40" fill="none" id="svg_27" stroke="#000000" stroke-miterlimit="10"/>
+   <g id="svg_24">
+    <path d="m26.79,140l54.45,0c28.31,0 28.31,40 0,40l-54.45,0c-28.31,0 -28.31,-40 0,-40" fill="#cdffcc" id="svg_25" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m26.79,140l54.45,0c28.31,0 28.31,40 0,40l-54.45,0c-28.31,0 -28.31,-40 0,-40" fill="none" id="svg_26" stroke="#000000" stroke-miterlimit="10"/>
    </g>
-   <g id="svg_28">
-    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_29" text-anchor="middle">
-     <text id="svg_30" x="132.26" y="195.5">ID</text>
+   <g id="svg_27">
+    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_28" text-anchor="middle">
+     <text id="svg_29" x="53.51" y="164.5">CompressType</text>
     </g>
    </g>
-   <g id="svg_31">
-    <path d="m181.28,171l59.44,0c30.91,0 30.91,40 0,40l-59.44,0c-30.91,0 -30.91,-40 0,-40" fill="#cdffcc" id="svg_32" stroke="#000000" stroke-miterlimit="10"/>
-    <path d="m181.28,171l59.44,0c30.91,0 30.91,40 0,40l-59.44,0c-30.91,0 -30.91,-40 0,-40" fill="none" id="svg_33" stroke="#000000" stroke-miterlimit="10"/>
+   <g id="svg_30">
+    <path d="m221.06,139.99l27.5,0c14.3,0 14.3,40 0,40l-27.5,0c-14.31,0 -14.31,-40 0,-40" fill="#cdffcc" id="svg_31" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m221.06,139.99l27.5,0c14.3,0 14.3,40 0,40l-27.5,0c-14.31,0 -14.31,-40 0,-40" fill="none" id="svg_32" stroke="#000000" stroke-miterlimit="10"/>
    </g>
-   <g id="svg_34">
-    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_35" text-anchor="middle">
-     <text id="svg_36" x="210.5" y="195.5">Error &amp; Message</text>
+   <g id="svg_33">
+    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_34" text-anchor="middle">
+     <text id="svg_35" x="234.31" y="164.49">ID</text>
     </g>
    </g>
-   <g id="svg_37">
-    <path d="m279.39,171l37.22,0c19.36,0 19.36,40 0,40l-37.22,0c-19.36,0 -19.36,-40 0,-40" fill="#cdffcc" id="svg_38" stroke="#000000" stroke-miterlimit="10"/>
-    <path d="m279.39,171l37.22,0c19.36,0 19.36,40 0,40l-37.22,0c-19.36,0 -19.36,-40 0,-40" fill="none" id="svg_39" stroke="#000000" stroke-miterlimit="10"/>
+   <g id="svg_36">
+    <path d="m126.79,140l59.45,0c30.91,0 30.91,40 0,40l-59.45,0c-30.91,0 -30.91,-40 0,-40" fill="#cdffcc" id="svg_37" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m126.79,140l59.45,0c30.91,0 30.91,40 0,40l-59.45,0c-30.91,0 -30.91,-40 0,-40" fill="none" id="svg_38" stroke="#000000" stroke-miterlimit="10"/>
    </g>
-   <g id="svg_40">
-    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_41" text-anchor="middle">
-     <text id="svg_42" x="297.5" y="195.5">Body Len</text>
+   <g id="svg_39">
+    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_40" text-anchor="middle">
+     <text id="svg_41" x="156.01" y="164.5">Method</text>
     </g>
    </g>
-   <g id="svg_43">
-    <path d="m354.83,171l58.34,0c30.33,0 30.33,40 0,40l-58.34,0c-30.33,0 -30.33,-40 0,-40" fill="#cdffcc" id="svg_44" stroke="#000000" stroke-miterlimit="10"/>
-    <path d="m354.83,171l58.34,0c30.33,0 30.33,40 0,40l-58.34,0c-30.33,0 -30.33,-40 0,-40" fill="none" id="svg_45" stroke="#000000" stroke-miterlimit="10"/>
+   <g id="svg_42">
+    <path d="m274.4,140l37.22,0c19.36,0 19.36,40 0,40l-37.22,0c-19.35,0 -19.35,-40 0,-40" fill="#cdffcc" id="svg_43" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m274.4,140l37.22,0c19.36,0 19.36,40 0,40l-37.22,0c-19.35,0 -19.35,-40 0,-40" fill="none" id="svg_44" stroke="#000000" stroke-miterlimit="10"/>
    </g>
-   <g id="svg_46">
-    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_47" text-anchor="middle">
-     <text id="svg_48" x="383.5" y="195.5">Body Hash Check</text>
+   <g id="svg_45">
+    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_46" text-anchor="middle">
+     <text id="svg_47" x="292.51" y="164.5">Body Len</text>
     </g>
    </g>
-   <g id="svg_49">
-    <path d="m218.24,127l0,12.06q0,10 -10,10l-139.18,0q-10,0 -10,9.85l0,9.85" fill="none" id="svg_50" stroke="#000000" stroke-miterlimit="10"/>
-    <path d="m53.06,157.88l6,12l6,-12" fill="none" id="svg_51" stroke="#000000" stroke-miterlimit="10"/>
+   <g id="svg_48">
+    <path d="m356.68,140l75.41,0c39.22,0 39.22,40 0,40l-75.41,0c-39.22,0 -39.22,-40 0,-40" fill="#cdffcc" id="svg_49" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m356.68,140l75.41,0c39.22,0 39.22,40 0,40l-75.41,0c-39.22,0 -39.22,-40 0,-40" fill="none" id="svg_50" stroke="#000000" stroke-miterlimit="10"/>
    </g>
-   <g id="svg_52">
-    <path d="m218.24,127l0,12.06q0,10 10,10l146.35,0q10,0 10,10l0,10.12" fill="none" id="svg_53" stroke="#000000" stroke-miterlimit="10"/>
-    <path d="m378.59,158.29l6,12l6,-12" fill="none" id="svg_54" stroke="#000000" stroke-miterlimit="10"/>
+   <g id="svg_51">
+    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_52" text-anchor="middle">
+     <text id="svg_53" x="393.88" y="164.5">Body Hash Checksum</text>
+    </g>
    </g>
-   <g id="svg_55">
-    <rect fill="none" height="32" id="svg_56" width="186" x="170.19"/>
+   <g id="svg_54">
+    <path d="m206.21,209.19l0,-29.2l57.19,0l0,32.44q-9.53,-3.24 -19.06,0q-23.83,14.28 -38.13,-3.24" fill="#feff99" id="svg_55" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m206.21,190.99l57.19,0" fill="none" id="svg_56" stroke="#000000" stroke-miterlimit="10"/>
    </g>
    <g id="svg_57">
-    <g id="svg_58" transform="translate(-0.5 -0.5)">
-     <switch transform="translate(-1 -2) translate(3 3)">
-      <foreignObject height="100%" id="svg_59" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" width="100%">Response Structure</foreignObject>
+    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_58" text-anchor="middle">
+     <text id="svg_59" x="234.31" y="203.95">uvarint</text>
+    </g>
+   </g>
+   <g id="svg_60">
+    <path d="m113.17,209.19l0,-29.19l86.68,0l0,32.43q-14.44,-3.24 -28,0q-38.68,14.27 -58.68,-3.24" fill="#feff99" id="svg_61" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m113.17,191l86.68,0" fill="none" id="svg_62" stroke="#000000" stroke-miterlimit="10"/>
+   </g>
+   <g id="svg_63">
+    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_64" text-anchor="middle">
+     <text id="svg_65" x="156.01" y="203.96">uvarint+[]byte</text>
+    </g>
+   </g>
+   <g id="svg_66">
+    <path d="m264.42,209.19l0,-29.2l57.19,0l0,32.44q-9.53,-3.24 -19.06,0q-23.83,14.28 -38.13,-3.24" fill="#feff99" id="svg_67" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m264.42,190.99l57.19,0" fill="none" id="svg_68" stroke="#000000" stroke-miterlimit="10"/>
+   </g>
+   <g id="svg_69">
+    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_70" text-anchor="middle">
+     <text id="svg_71" x="292.52" y="203.95">uvarint</text>
+    </g>
+   </g>
+   <g id="svg_72">
+    <path d="m365.78,209.19l0,-29.2l57.2,0l0,32.45q-9.53,-3.25 -19.06,0q-23.84,14.27 -38.14,-3.25" fill="#feff99" id="svg_73" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m365.78,190.99l57.2,0" fill="none" id="svg_74" stroke="#000000" stroke-miterlimit="10"/>
+   </g>
+   <g id="svg_75">
+    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_76" text-anchor="middle">
+     <text id="svg_77" x="393.88" y="203.96">uint32</text>
+    </g>
+   </g>
+   <g id="svg_78">
+    <path d="m218.33,110l0,7.5q0,7.5 -10,7.5l-144.33,0q-10,0 -10,6.38l0,6.38" fill="none" id="svg_79" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m48,126.88l6,12l6,-12" fill="none" id="svg_80" stroke="#000000" stroke-miterlimit="10"/>
+   </g>
+   <g id="svg_81">
+    <path d="m218.33,110l0,7.5q0,7.5 10,7.5l156.09,0q10,0 10,6.38l0,6.38" fill="none" id="svg_82" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m388.42,126.88l6,12l6,-12" fill="none" id="svg_83" stroke="#000000" stroke-miterlimit="10"/>
+   </g>
+   <g id="svg_84">
+    <path d="m25.42,209.2l0,-29.2l57.2,0l0,32.45q-9.54,-3.25 -19.07,0q-23.83,14.27 -38.13,-3.25" fill="#feff99" id="svg_85" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m25.42,191l57.2,0" fill="none" id="svg_86" stroke="#000000" stroke-miterlimit="10"/>
+   </g>
+   <g id="svg_87">
+    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_88" text-anchor="middle">
+     <text id="svg_89" x="53.52" y="203.97">uint16</text>
+    </g>
+   </g>
+   <g id="svg_90">
+    <rect fill="none" height="35" id="svg_91" width="80" x="185" y="0"/>
+   </g>
+   <g id="svg_92">
+    <g id="svg_93" transform="translate(-0.5 -0.5)">
+     <switch>
+      <foreignObject height="100%" id="svg_94" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" width="100%">Response Stream</foreignObject>
       <g id="svg_2">
-       <svg height="100%" id="svg_60" width="100%">
+       <svg height="100%" id="svg_95" width="100%">
         <defs>
-         <path d="m171.77,27.99l182.44,0" id="svg_1"/>
+         <path d="m144.16,24.28l162.67,0" id="svg_1"/>
         </defs>
-        <text fill="rgb(0, 0, 0)" font-family="&quot;Open Sans&quot;, &quot;VP Default&quot;" font-size="20px" font-weight="400" id="svg_61">
+        <text fill="rgb(0, 0, 0)" font-family="&quot;open sans&quot;" font-size="20px" font-weight="400" id="svg_96">
          <textPath startOffset="50%" xlink:href="#svg_1">
-          <tspan id="svg_62" xml:space="preserve">Response Structure</tspan>
+          <tspan id="svg_97" xml:space="preserve">Response Stream</tspan>
          </textPath>
         </text>
        </svg>
@@ -143,66 +195,13 @@ a { color: #007bff; }</style>
      </switch>
     </g>
    </g>
-   <g id="svg_63">
-    <path d="m104.16,240.2l0,-29.2l57.2,0l0,32.44q-9.53,-3.24 -19.07,0q-23.83,14.28 -38.13,-3.24" fill="#feff99" id="svg_64" stroke="#000000" stroke-miterlimit="10"/>
-    <path d="m104.16,222l57.2,0" fill="none" id="svg_65" stroke="#000000" stroke-miterlimit="10"/>
-   </g>
-   <g id="svg_66">
-    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_67" text-anchor="middle">
-     <text id="svg_68" x="132.26" y="234.96">uvarint</text>
-    </g>
-   </g>
-   <g id="svg_69">
-    <path d="m167.66,240.19l0,-29.19l86.68,0l0,32.43q-14.45,-3.24 -28,0q-38.68,14.27 -58.68,-3.24" fill="#feff99" id="svg_70" stroke="#000000" stroke-miterlimit="10"/>
-    <path d="m167.66,222l86.68,0" fill="none" id="svg_71" stroke="#000000" stroke-miterlimit="10"/>
-   </g>
-   <g id="svg_72">
-    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_73" text-anchor="middle">
-     <text id="svg_74" x="210.5" y="234.96">uvarint+[]byte</text>
-    </g>
-   </g>
-   <g id="svg_75">
-    <path d="m269.4,240.19l0,-29.2l57.2,0l0,32.44q-9.53,-3.24 -19.07,0q-23.83,14.28 -38.13,-3.24" fill="#feff99" id="svg_76" stroke="#000000" stroke-miterlimit="10"/>
-    <path d="m269.4,221.99l57.2,0" fill="none" id="svg_77" stroke="#000000" stroke-miterlimit="10"/>
-   </g>
-   <g id="svg_78">
-    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_79" text-anchor="middle">
-     <text id="svg_80" x="297.5" y="234.96">uvarint</text>
-    </g>
-   </g>
-   <g id="svg_81">
-    <path d="m355.4,240.2l0,-29.2l57.2,0l0,32.45q-9.53,-3.25 -19.07,0q-23.83,14.27 -38.13,-3.25" fill="#feff99" id="svg_82" stroke="#000000" stroke-miterlimit="10"/>
-    <path d="m355.4,222l57.2,0" fill="none" id="svg_83" stroke="#000000" stroke-miterlimit="10"/>
-   </g>
-   <g id="svg_84">
-    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_85" text-anchor="middle">
-     <text id="svg_86" x="383.5" y="234.97">uint32</text>
-    </g>
-   </g>
-   <g id="svg_87">
-    <path d="m0,139.75l0,-27.75l80.38,0l0,30.83q-13.4,-3.08 -26.79,0q-33.59,13.57 -53.59,-3.08" fill="#feff99" id="svg_88" stroke="#000000" stroke-miterlimit="10"/>
-    <path d="m0,123l80.38,0" fill="none" id="svg_89" stroke="#000000" stroke-miterlimit="10"/>
-   </g>
-   <g id="svg_90">
-    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_91" text-anchor="middle">
-     <text id="svg_92" x="39.69" y="135">length uint</text>
-    </g>
-   </g>
-   <g id="svg_93">
-    <rect fill="#fdd4fd" height="40" id="svg_94" rx="11" ry="11" stroke="#000000" width="80" x="0.19" y="85"/>
-   </g>
-   <g id="svg_95">
-    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_96" text-anchor="middle">
-     <text id="svg_97" x="39.69" y="109.5">Header Info</text>
-    </g>
-   </g>
    <g id="svg_98">
-    <path d="m218.24,127l0,12.06q0,10 -10,10l-139.18,0q-10,0 -10,9.85l0,9.85" fill="none" id="svg_99" stroke="#000000" stroke-miterlimit="10"/>
-    <path d="m53.06,157.88l6,12l6,-12" fill="none" id="svg_100" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m218.33,110l0,7.5q0,7.5 -10,7.5l-144.33,0q-10,0 -10,6.38l0,6.38" fill="none" id="svg_99" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m48,126.88l6,12l6,-12" fill="none" id="svg_100" stroke="#000000" stroke-miterlimit="10"/>
    </g>
    <g id="svg_101">
-    <path d="m218.24,127l0,12.06q0,10 10,10l146.35,0q10,0 10,10l0,10.12" fill="none" id="svg_102" stroke="#000000" stroke-miterlimit="10"/>
-    <path d="m378.59,158.29l6,12l6,-12" fill="none" id="svg_103" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m218.33,110l0,7.5q0,7.5 10,7.5l156.09,0q10,0 10,6.38l0,6.38" fill="none" id="svg_102" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m388.42,126.88l6,12l6,-12" fill="none" id="svg_103" stroke="#000000" stroke-miterlimit="10"/>
    </g>
   </g>
  </g>

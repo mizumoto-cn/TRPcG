@@ -1,0 +1,208 @@
+<?xml version="1.0"?>
+<svg width="647" height="312" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+ <defs>
+  <style type="text/css">ul { margin-top: 0px; margin-bottom: 10px; }
+ol { margin-top: 0px; margin-bottom: 10px; }
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 { margin-bottom: .5rem; font-weight: 500; line-height: 1.2; }
+h1, h2, h3, h4, h5, h6 { margin-top: 0; margin-bottom: .5rem; }
+.h1, h1 { font-size: 2.5rem; }
+h2 { font-size: 1.5em; font-weight: bold; }
+h3 { font-size: 1.17em; font-weight: bold; }
+.h4, h4 { font-size: 1.5rem; }
+.h5, h5 { font-size: 1.25rem; }
+.h6, h6 { font-size: 1rem; }
+p { margin-top: 0; margin-bottom: 1rem; }
+a { color: #007bff; }
+ul { margin-top: 0px; margin-bottom: 10px; }
+ol { margin-top: 0px; margin-bottom: 10px; }
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 { margin-bottom: .5rem; font-weight: 500; line-height: 1.2; }
+h1, h2, h3, h4, h5, h6 { margin-top: 0; margin-bottom: .5rem; }
+.h1, h1 { font-size: 2.5rem; }
+h2 { font-size: 1.5em; font-weight: bold; }
+h3 { font-size: 1.17em; font-weight: bold; }
+.h4, h4 { font-size: 1.5rem; }
+.h5, h5 { font-size: 1.25rem; }
+.h6, h6 { font-size: 1rem; }
+p { margin-top: 0; margin-bottom: 1rem; }
+a { color: #007bff; }
+ul { margin-top: 0px; margin-bottom: 10px; }
+ol { margin-top: 0px; margin-bottom: 10px; }
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 { margin-bottom: .5rem; font-weight: 500; line-height: 1.2; }
+h1, h2, h3, h4, h5, h6 { margin-top: 0; margin-bottom: .5rem; }
+.h1, h1 { font-size: 2.5rem; }
+h2 { font-size: 1.5em; font-weight: bold; }
+h3 { font-size: 1.17em; font-weight: bold; }
+.h4, h4 { font-size: 1.5rem; }
+.h5, h5 { font-size: 1.25rem; }
+.h6, h6 { font-size: 1rem; }
+p { margin-top: 0; margin-bottom: 1rem; }
+a { color: #007bff; }</style>
+  <style type="text/css">@import url(https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap);</style>
+ </defs>
+ <switch>
+  <g id="svg_3" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"/>
+  <a id="svg_4" transform="translate(0,-5)">
+   <text font-size="10px" id="svg_5" text-anchor="middle" x="50%" y="100%"/>
+  </a>
+ </switch>
+ <g class="layer">
+  <title>Layer 1</title>
+  <g id="svg_6">
+   <g id="svg_7">
+    <path d="m190.16,110.34l206.3,0c107.27,0 107.27,53.82 0,53.82l-206.3,0c-107.28,0 -107.28,-53.82 0,-53.82" fill="#feff99" id="svg_8" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m190.16,110.34l206.3,0c107.27,0 107.27,53.82 0,53.82l-206.3,0c-107.28,0 -107.28,-53.82 0,-53.82" fill="none" id="svg_9" stroke="#000000" stroke-miterlimit="10"/>
+   </g>
+   <g id="svg_10">
+    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_11" text-anchor="middle">
+     <text id="svg_12" x="292.81" y="141.75">Header</text>
+    </g>
+   </g>
+   <g id="svg_13">
+    <path d="m516.04,110.34l92.68,0c48.2,0 48.2,53.82 0,53.82l-92.68,0c-48.19,0 -48.19,-53.82 0,-53.82" fill="#f0ffff" id="svg_14" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m516.04,110.34l92.68,0c48.2,0 48.2,53.82 0,53.82l-92.68,0c-48.19,0 -48.19,-53.82 0,-53.82" fill="none" id="svg_15" stroke="#000000" stroke-miterlimit="10"/>
+   </g>
+   <g id="svg_16">
+    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_17" text-anchor="middle">
+     <text id="svg_18" x="561.88" y="141.75">Body</text>
+    </g>
+   </g>
+   <g id="svg_19">
+    <rect fill="#fdd4fd" height="53.82" id="svg_20" rx="11" ry="11" stroke="#000000" width="107.64" x="0" y="107.65"/>
+   </g>
+   <g id="svg_21">
+    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_22" text-anchor="middle">
+     <text id="svg_23" x="53.32" y="139.06">Header Info</text>
+    </g>
+   </g>
+   <g id="svg_24">
+    <path d="m35.69,204.52l73.25,0c38.09,0 38.09,53.82 0,53.82l-73.25,0c-38.09,0 -38.09,-53.82 0,-53.82" fill="#cdffcc" id="svg_25" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m35.69,204.52l73.25,0c38.09,0 38.09,53.82 0,53.82l-73.25,0c-38.09,0 -38.09,-53.82 0,-53.82" fill="none" id="svg_26" stroke="#000000" stroke-miterlimit="10"/>
+   </g>
+   <g id="svg_27">
+    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_28" text-anchor="middle">
+     <text id="svg_29" x="71.82" y="235.93">CompressType</text>
+    </g>
+   </g>
+   <g id="svg_30">
+    <path d="m153.05,204.52l37,0c19.25,0 19.25,53.82 0,53.82l-37,0c-19.25,0 -19.25,-53.82 0,-53.82" fill="#cdffcc" id="svg_31" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m153.05,204.52l37,0c19.25,0 19.25,53.82 0,53.82l-37,0c-19.25,0 -19.25,-53.82 0,-53.82" fill="none" id="svg_32" stroke="#000000" stroke-miterlimit="10"/>
+   </g>
+   <g id="svg_33">
+    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_34" text-anchor="middle">
+     <text id="svg_35" x="171.05" y="235.93">ID</text>
+    </g>
+   </g>
+   <g id="svg_36">
+    <path d="m236.83,204.52l79.98,0c41.59,0 41.59,53.82 0,53.82l-79.98,0c-41.58,0 -41.58,-53.82 0,-53.82" fill="#cdffcc" id="svg_37" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m236.83,204.52l79.98,0c41.59,0 41.59,53.82 0,53.82l-79.98,0c-41.58,0 -41.58,-53.82 0,-53.82" fill="none" id="svg_38" stroke="#000000" stroke-miterlimit="10"/>
+   </g>
+   <g id="svg_39">
+    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_40" text-anchor="middle">
+     <text id="svg_41" x="276.32" y="235.93">Error &amp; Message</text>
+    </g>
+   </g>
+   <g id="svg_42">
+    <path d="m368.84,204.52l50.08,0c26.04,0 26.04,53.82 0,53.82l-50.08,0c-26.04,0 -26.04,-53.82 0,-53.82" fill="#cdffcc" id="svg_43" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m368.84,204.52l50.08,0c26.04,0 26.04,53.82 0,53.82l-50.08,0c-26.04,0 -26.04,-53.82 0,-53.82" fill="none" id="svg_44" stroke="#000000" stroke-miterlimit="10"/>
+   </g>
+   <g id="svg_45">
+    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_46" text-anchor="middle">
+     <text id="svg_47" x="393.38" y="235.93">Body Len</text>
+    </g>
+   </g>
+   <g id="svg_48">
+    <path d="m481.1,204.52l105.36,0c54.79,0 54.79,53.82 0,53.82l-105.36,0c-54.79,0 -54.79,-53.82 0,-53.82" fill="#cdffcc" id="svg_49" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m481.1,204.52l105.36,0c54.79,0 54.79,53.82 0,53.82l-105.36,0c-54.79,0 -54.79,-53.82 0,-53.82" fill="none" id="svg_50" stroke="#000000" stroke-miterlimit="10"/>
+   </g>
+   <g id="svg_51">
+    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_52" text-anchor="middle">
+     <text id="svg_53" x="533.28" y="235.93">Body Hash Checksum</text>
+    </g>
+   </g>
+   <g id="svg_54">
+    <path d="m133.08,297.62l0,-39.28l76.96,0l0,43.65q-12.83,-4.37 -25.66,0q-32.06,18.73 -51.3,-4.37" fill="#feff99" id="svg_55" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m133.08,269.34l76.96,0" fill="none" id="svg_56" stroke="#000000" stroke-miterlimit="10"/>
+   </g>
+   <g id="svg_57">
+    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_58" text-anchor="middle">
+     <text id="svg_59" x="171.06" y="289.03">uvarint</text>
+    </g>
+   </g>
+   <g id="svg_60">
+    <path d="m218.51,297.61l0,-39.27l116.63,0l0,43.64q-19.44,-4.37 -28,0q-68.63,18.73 -88.63,-4.37" fill="#feff99" id="svg_61" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m218.51,269.34l116.63,0" fill="none" id="svg_62" stroke="#000000" stroke-miterlimit="10"/>
+   </g>
+   <g id="svg_63">
+    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_64" text-anchor="middle">
+     <text id="svg_65" x="276.32" y="289.02">uvarint+[]byte</text>
+    </g>
+   </g>
+   <g id="svg_66">
+    <path d="m355.4,297.61l0,-39.28l76.96,0l0,43.65q-12.83,-4.37 -25.65,0q-32.07,18.73 -51.31,-4.37" fill="#feff99" id="svg_67" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m355.4,269.33l76.96,0" fill="none" id="svg_68" stroke="#000000" stroke-miterlimit="10"/>
+   </g>
+   <g id="svg_69">
+    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_70" text-anchor="middle">
+     <text id="svg_71" x="393.38" y="289.02">uvarint</text>
+    </g>
+   </g>
+   <g id="svg_72">
+    <path d="m494.76,297.62l0,-39.29l76.96,0l0,43.65q-12.83,-4.36 -25.66,0q-32.06,18.73 -51.3,-4.36" fill="#feff99" id="svg_73" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m494.76,269.33l76.96,0" fill="none" id="svg_74" stroke="#000000" stroke-miterlimit="10"/>
+   </g>
+   <g id="svg_75">
+    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_76" text-anchor="middle">
+     <text id="svg_77" x="532.74" y="289.02">uint32</text>
+    </g>
+   </g>
+   <g id="svg_78">
+    <path d="m293.3,164.16l0,10.14q0,10 -10,10l-200.9,0q-10,0 -10,8.99l0,8.99" fill="none" id="svg_79" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m66.4,191.4l6,12l6,-12" fill="none" id="svg_80" stroke="#000000" stroke-miterlimit="10"/>
+   </g>
+   <g id="svg_81">
+    <path d="m293.3,164.16l0,10.14q0,10 10,10l220.6,0q10,0 10,8.99l0,8.99" fill="none" id="svg_82" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m527.9,191.4l6,12l6,-12" fill="none" id="svg_83" stroke="#000000" stroke-miterlimit="10"/>
+   </g>
+   <g id="svg_84">
+    <path d="m33.84,297.63l0,-39.29l76.96,0l0,43.65q-12.83,-4.36 -25.66,0q-32.06,18.73 -51.3,-4.36" fill="#feff99" id="svg_85" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m33.84,269.34l76.96,0" fill="none" id="svg_86" stroke="#000000" stroke-miterlimit="10"/>
+   </g>
+   <g id="svg_87">
+    <g fill="#000000" font-family="Helvetica" font-size="12px" id="svg_88" text-anchor="middle">
+     <text id="svg_89" x="71.82" y="289.03">uint16</text>
+    </g>
+   </g>
+   <g id="svg_90">
+    <rect fill="none" height="47.09" id="svg_91" width="107.64" x="239.48" y="0.01"/>
+   </g>
+   <g id="svg_92">
+    <g id="svg_93" transform="translate(-0.5 -0.5)">
+     <switch>
+      <foreignObject height="100%" id="svg_94" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" width="100%">Request Stream</foreignObject>
+      <g id="svg_2">
+       <svg height="100%" id="svg_95" width="100%">
+        <defs>
+         <path d="m219.38,31.28l148.24,0" id="svg_1"/>
+        </defs>
+        <text fill="rgb(0, 0, 0)" font-family="&quot;open sans&quot;" font-size="20px" font-weight="400" id="svg_96">
+         <textPath startOffset="50%" xlink:href="#svg_1">
+          <tspan id="svg_97" xml:space="preserve">Request Stream</tspan>
+         </textPath>
+        </text>
+       </svg>
+      </g>
+     </switch>
+    </g>
+   </g>
+   <g id="svg_98">
+    <path d="m293.3,164.16l0,10.14q0,10 -10,10l-200.9,0q-10,0 -10,8.99l0,8.99" fill="none" id="svg_99" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m66.4,191.4l6,12l6,-12" fill="none" id="svg_100" stroke="#000000" stroke-miterlimit="10"/>
+   </g>
+   <g id="svg_101">
+    <path d="m293.3,164.16l0,10.14q0,10 10,10l220.6,0q10,0 10,8.99l0,8.99" fill="none" id="svg_102" stroke="#000000" stroke-miterlimit="10"/>
+    <path d="m527.9,191.4l6,12l6,-12" fill="none" id="svg_103" stroke="#000000" stroke-miterlimit="10"/>
+   </g>
+  </g>
+ </g>
+</svg>
