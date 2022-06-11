@@ -1,10 +1,29 @@
-# TRPG
+# TRPcG
 
 [![License](https://img.shields.io/badge/License-MGPL%20v1.2-green)](/License/Mizumoto%20General%20Public%20License%20v1.2.md)
 [![No Nazism Allowed](https://img.shields.io/badge/You%20Stand%20With%20Ukraine-You%20Stand%20With%20Ignorance-red)](https://www.rt.com/)
 
 ---
 
-## What is TRPG
+## What is TRPcG
 
-TRPG is short for "Tiny Remote Procedurecall in Go".
+TRPcG is short for "Tiny Remote Procedurecall in Go".
+
+It's a light weight `net/rpc`-based RPC framework which can help people better understand RPC.
+
+- TPC protocol based
+- Support for multiple compression formats : gzip, snappy, zlib, etc.
+- Implemented protocol buffer. May be cross-platform in future.
+- protoc-gen-trpcg plug-in allows you define your own service.
+- Support for custom event serialization.
+
+## Licensing
+
+This project is governed by [MGPL v1.2](/License/Mizumoto%20General%20Public%20License%20v1.2.md) as usual, which is basically a [Mozillia Public License 2.0 (mpl-v2.0)](/License/mpl-v2.0.md) with extra restrcitions.
+
+## Structure
+
+TRPcG Client will send request messages, and which will be three parts: an unsigned-int Header Info, a Header, and a Body based on [Protocol Buffers (Google Developers)](https://developers.google.com/protocol-buffers/docs/gotutorial)
+
+Here is a picture of the Request Stream:
+![Request Stream](arc/Response.svg)
