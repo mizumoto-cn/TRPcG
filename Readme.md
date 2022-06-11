@@ -26,4 +26,18 @@ This project is governed by [MGPL v1.2](/License/Mizumoto%20General%20Public%20L
 TRPcG Client will send request messages, and which will be three parts: an unsigned-int Header Info, a Header, and a Body based on [Protocol Buffers (Google Developers)](https://developers.google.com/protocol-buffers/docs/gotutorial)
 
 Here is a picture of the Request Stream:
-![Request Stream](arc/Response.svg)
+
+![Request Stream](arc/Request.svg)
+
+![Response Stream](arc/Response.svg)
+
+> `uvarint` is just like a variable-length unsigned-integer. It's an encoding of 64-bit unsigned integers into between 1 and 9 bytes.
+
+The **Header** is based on a contomised protocol.
+
+**ID** is like a serial code of the RPc call, with which in conccurrent cases, clients can determine whether it's a successful call based on the ID serial number of the response.
+
+### Header
+
+So now lets talk about the `Header`, which will be defined in
+
