@@ -10,3 +10,11 @@ var (
 func init() {
 	// boo
 }
+
+func (r *RequestHeader) ResetHeader() error {
+	return nil
+}
+
+func (r *ResponseHeader) ResetHeader() error {
+	return nil
+}

@@ -39,5 +39,8 @@ The **Header** is based on a contomised protocol.
 
 ### Header
 
-So now lets talk about the `Header`, which will be defined in [/header/](/header/)
+So now lets talk about the `Header`, which will be defined in [/header/](/header/).
 
+As for header defination, we seperate request and respond header into two files : [req](header/req_header.go) and [res](header/res_header.go).
+
+To reuse created Request/Responce Header objects, TRPcG implements buffer pools. When a header finishes its job, TRPcG will reset its status using a ResetHeader() method and push it back into the pool again.
