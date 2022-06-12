@@ -39,5 +39,5 @@ The **Header** is based on a contomised protocol.
 
 ### Header
 
-So now lets talk about the `Header`, which will be defined in [/header/header.go](/header/header.go)
+So now lets talk about the `Header`, which will be defined in [/header/](/header/)
 
