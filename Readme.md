@@ -43,4 +43,12 @@ So now lets talk about the `Header`, which will be defined in [/header/](/header
 
 As for header defination, we seperate request and respond header into two files : [req](header/req_header.go) and [res](header/res_header.go).
 
-To reuse created Request/Responce Header objects, TRPcG implements buffer pools. When a header finishes its job, TRPcG will reset its status using a ResetHeader() method and push it back into the pool again.
+To reuse created Request/Responce Header objects, TRPcG implements buffer pools. When a header finishes its job, TRPcG will reset its status using a ResetHeader() method, then they'll be thrown back into the pool again.
+
+### IO
+
+The IO operating methods are built in [/codec/io.go](/codec/io.go) .
+
+-> write to IO stream: `sendFrame()`
+
+Firstly put len(data) into stream, if it isnt 0, write []byte into it.
