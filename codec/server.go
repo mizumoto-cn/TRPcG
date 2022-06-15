@@ -1,10 +1,12 @@
 package codec
 
 import (
+	"hash/crc32"
 	"io"
 	"net/rpc"
 	"sync"
 
+	"github.com/mizumoto-cn/TRPcG/compressor"
 	"github.com/mizumoto-cn/TRPcG/header"
 	"github.com/mizumoto-cn/TRPcG/serializer"
 )
@@ -67,4 +69,22 @@ func (thi *serverCodec) ReadRequestBody(param any) error {
 	if err != nil {
 		return err
 	}
+	// check
+	if thi.request.Checksum != 0 {
+		if crc32.ChecksumIEEE(reqBody) != thi.request.Checksum {
+			return ErrUnexpectedChecksum
+		}
+	}
+	// check compressor
+	_, ok := compressor.Compressors[thi.request.GetCompressType()]
+	if !ok {
+		return ErrCompressorNotFound
+	}
+	// Unzip
+	req, err := compressor.Compressors[thi.request.GetCompressType()].Unzip(reqBody)
+	if err != nil {
+		return err
+	}
+	// Unmarshal
+	return thi.serializer.Unmarshal(req, param)
 }
