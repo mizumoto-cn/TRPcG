@@ -51,25 +51,25 @@ type clientCodec struct {
 	pending    map[uint64]string
 }
 
-func (this_c *clientCodec) Close() error {
-	return this_c.c.Close()
+func (client *clientCodec) Close() error {
+	return client.c.Close()
 }
 
-func (this_c *clientCodec) WriteRequest(r *rpc.Request, param any) error {
-	this_c.mutex.Lock()
-	this_c.pending[r.Seq] /*sequence number chosen by client*/ = r.ServiceMethod // format service.method
-	this_c.mutex.Unlock()
+func (client *clientCodec) WriteRequest(r *rpc.Request, param any) error {
+	client.mutex.Lock()
+	client.pending[r.Seq] /*sequence number chosen by client*/ = r.ServiceMethod // format service.method
+	client.mutex.Unlock()
 	// to check whether a map contains a key
 	// that is whether there is a compressor
-	if _, ok := compressor.Compressors[this_c.compressor]; !ok {
+	if _, ok := compressor.Compressors[client.compressor]; !ok {
 		return ErrCompressorNotFound
 	}
-	reqBody, err := this_c.serializer.Marshal(param)
+	reqBody, err := client.serializer.Marshal(param)
 	if err != nil {
 		return err
 	}
 	//compress
-	c_reqBody, err := compressor.Compressors[this_c.compressor].Zip(reqBody)
+	c_reqBody, err := compressor.Compressors[client.compressor].Zip(reqBody)
 	if err != nil {
 		return err
 	}
@@ -82,51 +82,51 @@ func (this_c *clientCodec) WriteRequest(r *rpc.Request, param any) error {
 	h.ID = r.Seq
 	h.Method = r.ServiceMethod
 	h.RequestLen = uint32(len(c_reqBody))
-	h.CompressType = header.CompressType(this_c.compressor)
+	h.CompressType = header.CompressType(client.compressor)
 	h.Checksum = crc32.ChecksumIEEE(c_reqBody)
 	// send Req Header
-	if err = sendFrame(this_c.w, h.Marshal()); err != nil {
+	if err = sendFrame(client.w, h.Marshal()); err != nil {
 		return err
 	}
 	// send req body
-	if err = write(this_c.w, c_reqBody); err != nil {
+	if err = write(client.w, c_reqBody); err != nil {
 		return err
 	}
 
-	this_c.w.(*bufio.Writer).Flush()
+	client.w.(*bufio.Writer).Flush()
 	return nil
 }
 
 // ClientCodec::ReadResponseHeader() implement
-func (this_c *clientCodec) ReadResponseHeader(r *rpc.Response) error {
+func (client *clientCodec) ReadResponseHeader(r *rpc.Response) error {
 	//reset req header
-	this_c.response.ResetHeader()
+	client.response.ResetHeader()
 	//receive header
-	data, err := receiveFrame(this_c.r)
+	data, err := receiveFrame(client.r)
 	if err != nil {
 		return nil
 	}
-	err = this_c.response.Unmarshal(data)
+	err = client.response.Unmarshal(data)
 	if err != nil {
 		return err
 	}
-	this_c.mutex.Lock()
+	client.mutex.Lock()
 
-	r.Seq = this_c.response.ID
-	r.Error = this_c.response.Error
+	r.Seq = client.response.ID
+	r.Error = client.response.Error
 	// infer service method from seqID
-	r.ServiceMethod = this_c.pending[r.Seq]
+	r.ServiceMethod = client.pending[r.Seq]
 	// delete seqID
-	delete(this_c.pending, r.Seq)
-	this_c.mutex.Unlock()
+	delete(client.pending, r.Seq)
+	client.mutex.Unlock()
 	return nil
 }
 
 // ClientCodec::ReadResponseBody implementation
-func (this_c *clientCodec) ReadResponseBody(param any) error {
+func (client *clientCodec) ReadResponseBody(param any) error {
 	if param == nil {
-		if this_c.response.ResponseLen != 0 {
-			err := read(this_c.r, make([]byte, this_c.response.ResponseLen))
+		if client.response.ResponseLen != 0 {
+			err := read(client.r, make([]byte, client.response.ResponseLen))
 			if err != nil {
 				return err
 			}
@@ -134,28 +134,28 @@ func (this_c *clientCodec) ReadResponseBody(param any) error {
 		return nil
 	}
 	// read  ResLen size bytes
-	resBody := make([]byte, this_c.response.ResponseLen)
-	err := read(this_c.r, resBody)
+	resBody := make([]byte, client.response.ResponseLen)
+	err := read(client.r, resBody)
 	if err != nil {
 		return err
 	}
 	// Check
-	if this_c.response.CheckSum != 0 {
-		if crc32.ChecksumIEEE(resBody) != this_c.response.CheckSum {
+	if client.response.CheckSum != 0 {
+		if crc32.ChecksumIEEE(resBody) != client.response.CheckSum {
 			return ErrUnexpectedChecksum
 		}
 	}
 	// check compressor
-	if _, ok := compressor.Compressors[this_c.response.GetCompressType()]; !ok {
+	if _, ok := compressor.Compressors[client.response.GetCompressType()]; !ok {
 		return ErrCompressorNotFound
 	}
 	// unzip
-	res, err := compressor.Compressors[this_c.response.GetCompressType()].Unzip(resBody)
+	res, err := compressor.Compressors[client.response.GetCompressType()].Unzip(resBody)
 	if err != nil {
 		return err
 	}
 	// Unmarshal
-	return this_c.serializer.Unmarshal(res, param)
+	return client.serializer.Unmarshal(res, param)
 }
 
 // use bufio
