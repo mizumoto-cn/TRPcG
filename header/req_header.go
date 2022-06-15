@@ -4,6 +4,8 @@ import (
 	"encoding/binary"
 	"errors"
 	"sync"
+
+	"github.com/mizumoto-cn/TRPcG/compressor"
 )
 
 const (
@@ -106,4 +108,11 @@ func readString(data []byte) (string, int) {
 	itor += len(str)
 
 	return str, itor
+}
+
+func (r *ResponseHeader) GetCompressType() compressor.CompressType {
+	r.RLock()
+	defer r.RUnlock()
+	return compressor.CompressType(r.CompressType)
+
 }

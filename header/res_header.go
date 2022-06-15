@@ -3,8 +3,11 @@ package header
 import (
 	"encoding/binary"
 	"sync"
+
+	"github.com/mizumoto-cn/TRPcG/compressor"
 )
 
+// cSpell:ignore itor errstr
 // const (
 // 	MaxHeaderSize = 2 + 10 + 10 + 10 + 4
 // 	(10 refer to binary.MaxVarintLen64)
@@ -98,3 +101,10 @@ func (r *ResponseHeader) Unmarshal(data []byte) (err error) {
 //
 // 	return str, itor
 // }
+
+// GetCompressType get compress type
+func (r *RequestHeader) GetCompressType() compressor.CompressType {
+	r.RLock()
+	defer r.RUnlock()
+	return compressor.CompressType(r.CompressType)
+}
