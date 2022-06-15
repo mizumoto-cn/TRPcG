@@ -170,5 +170,4 @@ func NewClientCodec(conn io.ReadWriteCloser, compressType compressor.CompressTyp
 		serializer: serializer,
 		pending:    make(map[uint64]string),
 	}
-
 }
