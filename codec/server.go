@@ -1,6 +1,7 @@
 package codec
 
 import (
+	"bufio"
 	"hash/crc32"
 	"io"
 	"net/rpc"
@@ -31,31 +32,31 @@ type serverCodec struct {
 }
 
 // ServerCodec::ReadRequestHeader()
-func (thi *serverCodec) ReadRequestHeader(r *rpc.Request) error {
-	thi.request.ResetHeader()
-	data, err := receiveFrame(thi.r)
+func (server *serverCodec) ReadRequestHeader(r *rpc.Request) error {
+	server.request.ResetHeader()
+	data, err := receiveFrame(server.r)
 	if err != nil {
 		return err
 	}
-	err = thi.request.UnMarshal(data)
+	err = server.request.UnMarshal(data)
 	if err != nil {
 		return err
 	}
-	thi.mutex.Lock()
-	thi.seq++ // add one to seqID
-	thi.pending[thi.seq] = thi.request.ID
-	r.ServiceMethod = thi.request.Method
-	r.Seq = thi.seq
-	thi.mutex.Unlock()
+	server.mutex.Lock()
+	server.seq++ // add one to seqID
+	server.pending[server.seq] = server.request.ID
+	r.ServiceMethod = server.request.Method
+	r.Seq = server.seq
+	server.mutex.Unlock()
 	return nil
 }
 
 // ServerCodec::ReadRequestBody()
-func (thi *serverCodec) ReadRequestBody(param any) error {
+func (server *serverCodec) ReadRequestBody(param any) error {
 	if param == nil {
 		// throw unused bytes
-		if thi.request.RequestLen != 0 {
-			err := read(thi.r, make([]byte, thi.request.RequestLen))
+		if server.request.RequestLen != 0 {
+			err := read(server.r, make([]byte, server.request.RequestLen))
 			if err != nil {
 				return err
 			}
@@ -63,53 +64,105 @@ func (thi *serverCodec) ReadRequestBody(param any) error {
 		return nil
 	}
 
-	reqBody := make([]byte, thi.request.RequestLen)
+	reqBody := make([]byte, server.request.RequestLen)
 	// read bytes of sizeof request body
-	err := read(thi.r, reqBody)
+	err := read(server.r, reqBody)
 	if err != nil {
 		return err
 	}
 	// check
-	if thi.request.Checksum != 0 {
-		if crc32.ChecksumIEEE(reqBody) != thi.request.Checksum {
+	if server.request.Checksum != 0 {
+		if crc32.ChecksumIEEE(reqBody) != server.request.Checksum {
 			return ErrUnexpectedChecksum
 		}
 	}
 	// check compressor
-	_, ok := compressor.Compressors[thi.request.GetCompressType()]
+	_, ok := compressor.Compressors[server.request.GetCompressType()]
 	if !ok {
 		return ErrCompressorNotFound
 	}
 	// Unzip
-	req, err := compressor.Compressors[thi.request.GetCompressType()].Unzip(reqBody)
+	req, err := compressor.Compressors[server.request.GetCompressType()].Unzip(reqBody)
 	if err != nil {
 		return err
 	}
 	// Unmarshal
-	return thi.serializer.Unmarshal(req, param)
+	return server.serializer.Unmarshal(req, param)
 }
 
 // ServerCodec::WriteResponse()
-func (thi *serverCodec) WriteResponse(r *rpc.Response, param any) error {
-	thi.mutex.Lock()
-	id, ok := thi.pending[r.Seq]
+func (server *serverCodec) WriteResponse(r *rpc.Response, param any) error {
+	server.mutex.Lock()
+	id, ok := server.pending[r.Seq]
 	if !ok {
-		thi.mutex.Unlock()
+		server.mutex.Unlock()
 		return ErrInvalidSeqID
 	}
-	delete(thi.pending, r.Seq)
-	thi.mutex.Unlock()
+	delete(server.pending, r.Seq)
+	server.mutex.Unlock()
 
 	// if it's not a adequate rpc-call, set param to nil
 	if r.Error != "" {
 		param = nil
 	}
 	// check compressor
-	_, ok := compressor.Compressors[thi.request.GetCompressType()]
+	_, ok = compressor.Compressors[server.request.GetCompressType()]
 	if !ok {
 		return ErrCompressorNotFound
 	}
 
-	var resBody []byte
+	var (
+		resBody []byte
+		err     error
+	)
+	if param != nil {
+		resBody, err = server.serializer.Marshal(param)
+		if err != nil {
+			return err
+		}
+	}
 
+	// Zip resBody
+	compressedResBody, err := compressor.
+		Compressors[server.request.GetCompressType()].Zip(resBody)
+	if err != nil {
+		return err
+	}
+
+	// Get a new res header
+	h := header.ResponsePool.Get().(*header.ResponseHeader)
+	defer func() {
+		h.ResetHeader()
+		header.ResponsePool.Put(h)
+	}()
+	h.ID = id
+	h.Error = r.Error
+	h.ResponseLen = uint32(len(compressedResBody))
+	h.CheckSum = crc32.ChecksumIEEE(compressedResBody)
+	h.CompressType = server.request.CompressType
+
+	err = sendFrame(server.w, h.Marshal())
+	if err != nil {
+		return err
+	}
+	err = write(server.w, compressedResBody)
+	if err != nil {
+		return err
+	}
+	server.w.(*bufio.Writer).Flush()
+	return nil
+}
+
+func (server *serverCodec) Close() error {
+	return server.c.Close()
+}
+
+func NewServerCodec(conn io.ReadWriteCloser, serializer serializer.Serializer) rpc.ServerCodec {
+	return &serverCodec{
+		r:          bufio.NewReader(conn),
+		w:          bufio.NewWriter(conn),
+		c:          conn,
+		serializer: serializer,
+		pending:    make(map[uint64]uint64),
+	}
 }
