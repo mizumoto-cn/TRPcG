@@ -147,14 +147,28 @@ func (this_c *clientCodec) ReadResponseBody(param any) error {
 	}
 	// check compressor
 	if _, ok := compressor.Compressors[this_c.response.GetCompressType()]; !ok {
-
+		return ErrCompressorNotFound
 	}
+	// unzip
+	res, err := compressor.Compressors[this_c.response.GetCompressType()].Unzip(resBody)
+	if err != nil {
+		return err
+	}
+	// Unmarshal
+	return this_c.serializer.Unmarshal(res, param)
 }
 
 // use bufio
 func NewClientCodec(conn io.ReadWriteCloser, compressType compressor.CompressType,
 	serializer serializer.Serializer) rpc.ClientCodec {
 
-	return nil
+	return &clientCodec{
+		r:          bufio.NewReader(conn),
+		w:          bufio.NewWriter(conn),
+		c:          conn,
+		compressor: compressType,
+		serializer: serializer,
+		pending:    make(map[uint64]string),
+	}
 
 }
