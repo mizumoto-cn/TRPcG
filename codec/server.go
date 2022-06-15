@@ -88,3 +88,28 @@ func (thi *serverCodec) ReadRequestBody(param any) error {
 	// Unmarshal
 	return thi.serializer.Unmarshal(req, param)
 }
+
+// ServerCodec::WriteResponse()
+func (thi *serverCodec) WriteResponse(r *rpc.Response, param any) error {
+	thi.mutex.Lock()
+	id, ok := thi.pending[r.Seq]
+	if !ok {
+		thi.mutex.Unlock()
+		return ErrInvalidSeqID
+	}
+	delete(thi.pending, r.Seq)
+	thi.mutex.Unlock()
+
+	// if it's not a adequate rpc-call, set param to nil
+	if r.Error != "" {
+		param = nil
+	}
+	// check compressor
+	_, ok := compressor.Compressors[thi.request.GetCompressType()]
+	if !ok {
+		return ErrCompressorNotFound
+	}
+
+	var resBody []byte
+
+}
