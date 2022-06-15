@@ -26,11 +26,11 @@ type RequestHeader struct {
 	CompressType CompressType // uint16, used to indicate the compress type. TRPcG supports Raw/Gzip/Snappy/Zlib
 	Method       string       //
 	ID           uint64       // ID of the request
-	RequestLen   uint32       // Lenghth of the request body
+	RequestLen   uint32       // Length of the request body
 	Checksum     uint32       // CRC32 hashed value for checksum
 }
 
-// Maarshal is somewhat a encoder
+// Marshal is somewhat a encoder
 func (r *RequestHeader) Marshal() []byte {
 	// lock and Unlock Readlock at the end
 	r.RLock()
@@ -110,7 +110,7 @@ func readString(data []byte) (string, int) {
 	return str, itor
 }
 
-func (r *ResponseHeader) GetCompressType() compressor.CompressType {
+func (r *RequestHeader) GetCompressType() compressor.CompressType {
 	r.RLock()
 	defer r.RUnlock()
 	return compressor.CompressType(r.CompressType)
