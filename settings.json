@@ -1,7 +1,12 @@
 {
     "cSpell.words": [
+        "MGPL",
+        "proto",
+        "protoc",
+        "tinyrpcgo",
+        "trpcg",
+        "uvarint",
         "itor",
         "tinyrpcgo",
-        "trpcg"
     ]
 }
