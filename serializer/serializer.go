@@ -1,6 +1,6 @@
 package serializer
 
-type SerializeType int32
+// type SerializeType int32
 
 type Serializer interface {
 	Marshal(message any) ([]byte, error)
