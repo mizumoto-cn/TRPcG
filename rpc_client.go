@@ -41,20 +41,20 @@ func NewClient(conn io.ReadWriteCloser, args ...Option) *Client {
 		compressType: compressor.Raw,
 		serializer:   serializer.Proto,
 	}
-	for _,option := range args{
+	for _, option := range args {
 		option(&options)
 	}
 	return &Client{
-		rpc.NewClientWithCodec(codec.NewClientCodec(conn, options.compressType, options.serializer))
+		rpc.NewClientWithCodec(codec.NewClientCodec(conn, options.compressType, options.serializer)),
 	}
 }
 
 // synchronous call
-func (c*Client)Call (serviceMethod string, args any, reply any ) error {
+func (c *Client) Call(serviceMethod string, args any, reply any) error {
 	return c.Client.Call(serviceMethod, args, reply)
 }
 
 // Async call  asynchronously calls the rpc function and returns a channel of *rpc.Call
-func (c *Client)AsyncCall(serviceMethod string, args any, reply any) chan *rpc.Call {
-	return c.Go(serviceMethod, args, reply, nil).Done	
+func (c *Client) AsyncCall(serviceMethod string, args any, reply any) chan *rpc.Call {
+	return c.Go(serviceMethod, args, reply, nil).Done
 }
