@@ -1,4 +1,4 @@
-package tinyrpcgo
+package TRPcG
 
 import (
 	"log"
