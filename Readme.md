@@ -16,7 +16,7 @@ TRPcG is short for "Tiny Remote Procedure-call in Go".
 
 It's a light weight `net/rpc`-based RPC framework which can help people better understand RPC.
 
-- TPC protocol based
+- TCP protocol based
 - Support for multiple compression formats : gzip, snappy, zlib, etc.
 - Implemented protocol buffer. May be cross-platform in future.
 - protoc-gen-trpcg plug-in allows you define your own service.
