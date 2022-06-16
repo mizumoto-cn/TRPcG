@@ -22,10 +22,6 @@ It's a light weight `net/rpc`-based RPC framework which can help people better u
 - protoc-gen-trpcg plug-in allows you define your own service.
 - Support for custom event serialization.
 
-## Licensing
-
-This project is governed by [MGPL v1.2](/License/Mizumoto%20General%20Public%20License%20v1.2.md) as usual, which is basically a [Mozilla Public License 2.0 (mpl-v2.0)](/License/mpl-v2.0.md) with extra restrictions.
-
 ## Structure
 
 TRPcG Client will send request messages, and which will be three parts: an unsigned-int Header Info, a Header, and a Body based on [Protocol Buffers (Google Developers)](https://developers.google.com/protocol-buffers/docs/gotutorial)
