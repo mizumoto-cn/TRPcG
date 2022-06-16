@@ -1,7 +1,7 @@
 # TRPcG
 
 [![License](https://img.shields.io/badge/License-MGPL%20v1.2-green)](/License/Mizumoto%20General%20Public%20License%20v1.2.md)
-[![No Nazism Allowed](https://img.shields.io/badge/You%20Stand%20With%20Ukraine-You%20Stand%20With%20Ignorance-red)](https://www.rt.com/)
+[![No Nazism Allowed](https://img.shields.io/badge/-Don't%20Stand%20With%20Ignorance-red)](#What) <!--(https://www.rt.com/)-->
 
 [![Build](https://github.com/mizumoto-cn/TRPG/actions/workflows/master.yml/badge.svg?branch=master)](https://github.com/mizumoto-cn/TRPG/actions)
 [![Go Report Card](https://goreportcard.com/badge/github.com/mizumoto-cn/TRPcG)](https://goreportcard.com/report/github.com/mizumoto-cn/TRPcG)
