@@ -1,6 +1,6 @@
 package compressor
 
-type CompressType int32
+type CompressType uint16
 
 const (
 	Raw CompressType = iota
