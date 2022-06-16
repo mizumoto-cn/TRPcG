@@ -1,2 +1,5 @@
 .vscode
 *.exe
+*.test
+*.exe~
+*.dll
