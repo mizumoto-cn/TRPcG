@@ -50,7 +50,7 @@ for more architecture info, goto [wiki](doc/Architecture.md)
 
 ```bash
 go install github.com/golang/protobuf/protoc-gen-go
-go install github.com/mizumoto-cn/trpcg/proto-gen
+go install github.com/mizumoto-cn/TRPG/proto-gen
 ```
 
 Then you'll need to create a `arith.proto` file to define the rpc services.
