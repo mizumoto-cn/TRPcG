@@ -15,4 +15,9 @@ type Compressor interface {
 }
 
 // Compressors
-var Compressors = map[CompressType]Compressor{}
+var Compressors = map[CompressType]Compressor{
+	Raw:    RawCompressor{},
+	Gzip:   GzipCompressor{},
+	Snappy: SnappyCompressor{},
+	Zlib:   ZlibCompressor{},
+}
