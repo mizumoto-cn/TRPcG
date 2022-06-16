@@ -4,6 +4,7 @@
 [![No Nazism Allowed](https://img.shields.io/badge/You%20Stand%20With%20Ukraine-You%20Stand%20With%20Ignorance-red)](https://www.rt.com/)
 
 [![Build](https://github.com/mizumoto-cn/TRPG/actions/workflows/master.yml/badge.svg?branch=master)](https://github.com/mizumoto-cn/TRPG/actions)
+[![Go Report Card](https://goreportcard.com/badge/github.com/mizumoto-cn/TRPcG)](https://goreportcard.com/report/github.com/mizumoto-cn/TRPcG)
 [![CodeFactor](https://www.codefactor.io/repository/github/mizumoto-cn/trpcg/badge)](https://www.codefactor.io/repository/github/mizumoto-cn/trpcg)
 ![License](https://img.shields.io/badge/Go%20version-1.18.3-green)
 
