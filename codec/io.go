@@ -11,7 +11,7 @@ import (
 // wstream << data length | data []bytes
 func sendFrame(w io.Writer, data []byte) (err error) {
 	var buf [binary.MaxVarintLen64]byte
-	
+
 	if len(data) == 0 {
 		n := binary.PutUvarint(buf[:], uint64(0))
 		err = write(w, buf[:n])
