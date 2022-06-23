@@ -12,11 +12,11 @@
 
 ---
 
-## What is TRPcG
+## What is TRPcG �
 
-TRPcG is short for "Tiny Remote Procedure-call in Go".
+TRPcG is short for "Tiny Remote Procedure-call in Go", a fast, stable, light-weight and high-performance RPC framework for Go.
 
-It's a light weight `net/rpc`-based RPC framework which can help people better understand RPC.
+It's also a example `net/rpc`-based RPC framework which can help people better understand RPC.
 
 - TCP based
 - Support for multiple compression formats : gzip, snappy, zlib, etc.
