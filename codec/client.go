@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"hash/crc32"
 	"io"
+	"log"
 	"net/rpc"
 	"sync"
 
@@ -55,6 +56,7 @@ func (client *clientCodec) Close() error {
 	return client.c.Close()
 }
 
+// WriteRequest Write the rpc request header and body to the io stream
 func (client *clientCodec) WriteRequest(r *rpc.Request, param any) error {
 	client.mutex.Lock()
 	client.pending[r.Seq] /*sequence number chosen by client*/ = r.ServiceMethod // format service.method
@@ -69,7 +71,8 @@ func (client *clientCodec) WriteRequest(r *rpc.Request, param any) error {
 		return err
 	}
 	//compress
-	c_reqBody, err := compressor.Compressors[client.compressor].Zip(reqBody)
+	compressorMethod := compressor.Compressors[client.compressor]
+	c_reqBody, err := compressorMethod.Zip(reqBody)
 	if err != nil {
 		return err
 	}
@@ -85,7 +88,8 @@ func (client *clientCodec) WriteRequest(r *rpc.Request, param any) error {
 	h.CompressType = compressor.CompressType(client.compressor)
 	h.Checksum = crc32.ChecksumIEEE(c_reqBody)
 	// send Req Header
-	if err = sendFrame(client.w, h.Marshal()); err != nil {
+	err = sendFrame(client.w, h.Marshal())
+	if err != nil {
 		return err
 	}
 	// send req body
@@ -146,8 +150,14 @@ func (client *clientCodec) ReadResponseBody(param any) error {
 		}
 	}
 	// check compressor
-	if _, ok := compressor.Compressors[client.response.GetCompressType()]; !ok {
+	boo := client.response.GetCompressType()
+	_, ok := compressor.Compressors[boo]
+	if !ok {
 		return ErrCompressorNotFound
+	}
+	if boo != client.compressor {
+		log.Fatalf("compressor type mismatch: %d != %d", client.response.GetCompressType(), client.compressor)
+		return ErrCompressorTypeMismatch
 	}
 	// unzip
 	res, err := compressor.Compressors[client.response.GetCompressType()].Unzip(resBody)

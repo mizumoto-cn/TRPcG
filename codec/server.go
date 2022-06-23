@@ -19,6 +19,12 @@ import (
 // 	Close()error
 // }
 
+// reqContext is a context for a request.
+type reqContext struct {
+	id             uint64
+	compressorType compressor.CompressType
+}
+
 type serverCodec struct {
 	r io.Reader
 	w io.Writer
@@ -28,7 +34,7 @@ type serverCodec struct {
 	serializer serializer.Serializer
 	mutex      sync.Mutex
 	seq        uint64
-	pending    map[uint64]uint64
+	pending    map[uint64]*reqContext
 }
 
 // ServerCodec::ReadRequestHeader()
@@ -44,7 +50,7 @@ func (server *serverCodec) ReadRequestHeader(r *rpc.Request) error {
 	}
 	server.mutex.Lock()
 	server.seq++ // add one to seqID
-	server.pending[server.seq] = server.request.ID
+	server.pending[server.seq] = &reqContext{server.request.ID, server.request.GetCompressType()}
 	r.ServiceMethod = server.request.Method
 	r.Seq = server.seq
 	server.mutex.Unlock()
@@ -93,7 +99,7 @@ func (server *serverCodec) ReadRequestBody(param any) error {
 // ServerCodec::WriteResponse()
 func (server *serverCodec) WriteResponse(r *rpc.Response, param any) error {
 	server.mutex.Lock()
-	id, ok := server.pending[r.Seq]
+	reqContext, ok := server.pending[r.Seq]
 	if !ok {
 		server.mutex.Unlock()
 		return ErrInvalidSeqID
@@ -106,8 +112,7 @@ func (server *serverCodec) WriteResponse(r *rpc.Response, param any) error {
 		param = nil
 	}
 	// check compressor
-	_, ok = compressor.Compressors[server.request.GetCompressType()]
-	if !ok {
+	if _, ok := compressor.Compressors[reqContext.compressorType]; !ok {
 		return ErrCompressorNotFound
 	}
 
@@ -124,7 +129,7 @@ func (server *serverCodec) WriteResponse(r *rpc.Response, param any) error {
 
 	// Zip resBody
 	compressedResBody, err := compressor.
-		Compressors[server.request.GetCompressType()].Zip(resBody)
+		Compressors[reqContext.compressorType].Zip(resBody)
 	if err != nil {
 		return err
 	}
@@ -135,11 +140,11 @@ func (server *serverCodec) WriteResponse(r *rpc.Response, param any) error {
 		h.ResetHeader()
 		header.ResponsePool.Put(h)
 	}()
-	h.ID = id
+	h.ID = reqContext.id
 	h.Error = r.Error
 	h.ResponseLen = uint32(len(compressedResBody))
 	h.CheckSum = crc32.ChecksumIEEE(compressedResBody)
-	h.CompressType = server.request.CompressType
+	h.CompressType = reqContext.compressorType
 
 	err = sendFrame(server.w, h.Marshal())
 	if err != nil {
@@ -163,6 +168,6 @@ func NewServerCodec(conn io.ReadWriteCloser, serializer serializer.Serializer) r
 		w:          bufio.NewWriter(conn),
 		c:          conn,
 		serializer: serializer,
-		pending:    make(map[uint64]uint64),
+		pending:    make(map[uint64]*reqContext),
 	}
 }

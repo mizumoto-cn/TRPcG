@@ -19,7 +19,7 @@ func (_ ProtoSerializer) Marshal(message any) ([]byte, error) {
 	if message == nil {
 		return []byte{}, nil
 	}
-	// body proto.Message //Message is the top-level interface that all messages must implement.
+	//Message is the top-level interface that all messages must implement.
 	// It provides access to a reflective view of a message. Any implementation of this interface
 	// may be used with all functions in the protobuf module that accept a Message, except where otherwise specified.
 	body, ok := message.(proto.Message)

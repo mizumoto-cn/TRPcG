@@ -11,13 +11,13 @@ import (
 // TestRequestHeader_Marshal tests RequestHeader::Marshal
 func TestRequestHeader_Marshal(t *testing.T) {
 	header := &RequestHeader{
-		CompressType: compressor.Raw,
+		CompressType: compressor.Gzip,
 		Method:       "Add",
 		ID:           12345,
 		RequestLen:   123,
 		Checksum:     12345,
 	}
-	assert.Equal(t, []byte{0x0, 0x0, 0x3, 0x41, 0x64, 0x64, 0xb9, 0x60, 0x7b, 0x39, 0x30, 0x0, 0x0}, header.Marshal())
+	assert.Equal(t, []byte{0x1, 0x0, 0x3, 0x41, 0x64, 0x64, 0xb9, 0x60, 0x7b, 0x39, 0x30, 0x0, 0x0}, header.Marshal())
 }
 
 // TestRequestHeader_Unmarshal tests RequestHeader::Unmarshal
@@ -33,10 +33,10 @@ func TestRequestHeader_Unmarshal(t *testing.T) {
 	}{
 		{
 			"test-1",
-			[]byte{0x0, 0x0, 0x3, 0x41, 0x64, 0x64, 0xb9, 0x60, 0x7b, 0x39, 0x30, 0x0, 0x0},
+			[]byte{0x2, 0x0, 0x3, 0x41, 0x64, 0x64, 0xb9, 0x60, 0x7b, 0x39, 0x30, 0x0, 0x0},
 			expect{
 				&RequestHeader{
-					CompressType: compressor.Raw,
+					CompressType: compressor.Snappy,
 					Method:       "Add",
 					ID:           12345,
 					RequestLen:   123,
