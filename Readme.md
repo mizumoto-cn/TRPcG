@@ -7,6 +7,7 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/mizumoto-cn/TRPcG)](https://goreportcard.com/report/github.com/mizumoto-cn/TRPcG)
 [![CodeFactor](https://www.codefactor.io/repository/github/mizumoto-cn/trpcg/badge)](https://www.codefactor.io/repository/github/mizumoto-cn/trpcg)
 ![License](https://img.shields.io/badge/Go%20version-1.18.3-green)
+<!-- markdownlint-disable no-hard-tabs -->
 
 ---
 
@@ -16,29 +17,11 @@ TRPcG is short for "Tiny Remote Procedure-call in Go".
 
 It's a light weight `net/rpc`-based RPC framework which can help people better understand RPC.
 
-- TCP protocol based
+- TCP based
 - Support for multiple compression formats : gzip, snappy, zlib, etc.
 - Implemented protocol buffer. May be cross-platform in future.
 - protoc-gen-trpcg plug-in allows you define your own service.
-- Support for custom event serialization.
-
-## Structure
-
-TRPcG Client will send request messages, and which will be three parts: an unsigned-int Header Info, a Header, and a Body based on [Protocol Buffers (Google Developers)](https://developers.google.com/protocol-buffers/docs/gotutorial)
-
-Here is a picture of the Request Stream:
-
-![Request Stream](arc/Request.svg)
-
-![Response Stream](arc/Response.svg)
-
-> `uvarint` is just like a variable-length unsigned-integer. It's an encoding of 64-bit unsigned integers into between 1 and 9 bytes.
-
-The **Header** is based on a customized protocol.
-
-**ID** is like a serial code of the RPc call, with which in concurrent cases, clients can determine whether it's a successful call based on the ID serial number of the response.
-
-for more architecture info, goto [wiki](doc/Architecture.md)
+- Support for custom serialization. See [Customize](#Customize)
 
 ## Install & Quick Start
 
@@ -64,7 +47,7 @@ Then you need a new `main.go` like [main.go.bak](main.go.bak)
 
 After that you can implement your rpc client.
 
-```Golang
+```golang
 ...
 conn, err := net.Dial("tcp", ":8082")
 if err != nil {
@@ -72,12 +55,121 @@ if err != nil {
 }
 defer conn.Close()
 client := TRPcG.NewClient(conn)
+req := &message.ArithRequest{ A: 1, B: 2 }
+res := &message.ArithResponse{}
+err = client.Call("Arith.Add", &req, &res)
+log.Printf("%d + %d = %d, %v", req.A, req.B, res.C, err)
 ...
 ```
 
 You may also use `AsyncCall` to get a asynchronous return in the form of `*rpc.Call`
 
-You can also use customized compressors like `gzip`, `snappy`, `zlib`, and serializers like json.
+```golang
+
+result := client.AsyncCall("ArithService.Add", &resq, &resp)
+select {
+case call := <-result:
+	log.Printf("Arith.Add(%v, %v): %v ,Error: %v", resq.A, resq.B, resp.C, call.Error)
+case <-time.After(100 * time.Microsecond):
+	log.Fatal("time out")
+}
+```
+
+## Customize
+
+### Compressor
+
+You can choose to use 'gzip', 'snappy', 'zlib', or 'raw' to compress the data.
+
+Like:
+
+```golang
+import "github.com/zehuamama/tinyrpc/compressor"
+
+...
+client := tinyrpc.NewClient(conn, tinyrpc.WithCompress(compressor.Gzip))
+```
+
+### Serializer
+
+You'll need to implement `Serializer` interface to use customized serialization.
+
+```golang
+type Serializer interface {
+    Serialize(interface{}) ([]byte, error)
+    Deserialize([]byte, interface{}) error
+}
+```
+
+Here is a simple implementation of `Serializer` in `json` format:
+
+```golang
+
+type JsonSerializer struct {}
+
+func (s *JsonSerializer) Serialize(v interface{}) ([]byte, error) {
+    return json.Marshal(v)
+}
+
+func (s *JsonSerializer) Deserialize(b []byte, v interface{}) error {
+    return json.Unmarshal(b, v)
+}
+```
+
+And we can use it to define a `service` like:
+
+```golang
+type JsonRequest struct {
+	Req string `json:"req"`
+}
+
+type JsonResponce struct {
+	Res string `json:"res"`
+}
+
+type RepeatService struct{}
+
+func (_ *JsonService) Repeater(args *JsonRequest, reply *JsonResponse) error {
+	reply.Res = args.Req
+	return nil
+}
+```
+
+Also, we'll have to assign `json` serializer to `server`:
+
+```golang
+listener, err := net.Listen("tcp", ":8082")
+if err != nil {
+    log.Fatal(err)
+}
+server := TRPcG.NewServer(listener, TRPcG.WithSerializer(&JsonSerializer{}))
+server.Register(&JsonService{})
+server.Serve(listener)
+```
+
+Remember your client also need to assign `json` serializer when you create it:
+
+```golang
+client := TRPcG.NewClient(conn, TRPcG.WithSerializer(&JsonSerializer{}))
+```
+
+## Architecture
+
+TRPcG Client will send request messages, and which will be three parts: an unsigned-int Header Info, a Header, and a Body based on [Protocol Buffers (Google Developers)](https://developers.google.com/protocol-buffers/docs/gotutorial)
+
+Here is a picture of the Request Stream:
+
+![Request Stream](arc/Request.svg)
+
+![Response Stream](arc/Response.svg)
+
+> `uvarint` is just like a variable-length unsigned-integer. It's an encoding of 64-bit unsigned integers into between 1 and 9 bytes.
+
+The `Header` is based on a customized protocol.
+
+`ID` is like a serial code of the rpc calls, with which in concurrent cases, clients can determine whether it's a successful call based on the ID serial number of the response.
+
+for more architecture info, goto [wiki](doc/Architecture.md)
 
 ## License
 
