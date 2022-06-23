@@ -11,7 +11,7 @@ import (
 // TestRequestHeader_Marshal tests RequestHeader::Marshal
 func TestRequestHeader_Marshal(t *testing.T) {
 	header := &RequestHeader{
-		CompressType: CompressType(compressor.Raw),
+		CompressType: compressor.Raw,
 		Method:       "Add",
 		ID:           12345,
 		RequestLen:   123,
@@ -36,7 +36,7 @@ func TestRequestHeader_Unmarshal(t *testing.T) {
 			[]byte{0x0, 0x0, 0x3, 0x41, 0x64, 0x64, 0xb9, 0x60, 0x7b, 0x39, 0x30, 0x0, 0x0},
 			expect{
 				&RequestHeader{
-					CompressType: CompressType(compressor.Raw),
+					CompressType: compressor.Raw,
 					Method:       "Add",
 					ID:           12345,
 					RequestLen:   123,
@@ -70,7 +70,7 @@ func TestRequestHeader_Unmarshal(t *testing.T) {
 // TestRequestHeader_ResetHeader tests RequestHeader::ResetHeader
 func TestRequestHeader_ResetHeader(t *testing.T) {
 	header := &RequestHeader{
-		CompressType: CompressType(compressor.Raw),
+		CompressType: compressor.Raw,
 		Method:       "Add",
 		ID:           12345,
 		RequestLen:   123,
@@ -83,7 +83,7 @@ func TestRequestHeader_ResetHeader(t *testing.T) {
 // TestRequestHeader_GetCompressType tests RequestHeader::GetCompressType
 func TestRequestHeader_GetCompressType(t *testing.T) {
 	header := &RequestHeader{
-		CompressType: CompressType(compressor.Raw),
+		CompressType: compressor.Raw,
 		Method:       "Add",
 		ID:           12345,
 		RequestLen:   123,

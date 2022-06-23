@@ -16,18 +16,22 @@ const (
 
 var ErrUnmarshalFail = errors.New("an error occurred in Unmarshal")
 
-type CompressType uint16
+// Changelog: no more use header.RequestHeader, use compressor.CompressType only,
+// as the type of CompressType shall only be defined once in the whole program
+// and it might cause unnecessary type_casting when trying to compare compressType
+// info in the header and compressor.CompressType enum aliases.
+//type CompressType uint16
 
 type RequestHeader struct {
 	// A RWMutex is a reader/writer mutual exclusion lock.
 	// The lock can be held by an arbitrary number of readers or a single writer.
 	// The zero value for a RWMutex is an unlocked mutex.
 	sync.RWMutex
-	CompressType CompressType // uint16, used to indicate the compress type. TRPcG supports Raw/Gzip/Snappy/Zlib
-	Method       string       //
-	ID           uint64       // ID of the request
-	RequestLen   uint32       // Length of the request body
-	Checksum     uint32       // CRC32 hashed value for checksum
+	CompressType compressor.CompressType // uint16, used to indicate the compress type. TRPcG supports Raw/Gzip/Snappy/Zlib
+	Method       string                  //
+	ID           uint64                  // ID of the request
+	RequestLen   uint32                  // Length of the request body
+	Checksum     uint32                  // CRC32 hashed value for checksum
 }
 
 // Marshal is somewhat a encoder
@@ -72,7 +76,7 @@ func (r *RequestHeader) UnMarshal(data []byte) (err error) {
 	}()
 	itor, size := 0, 0
 	// reads out bytes of a uint16 from []byte
-	r.CompressType = CompressType(binary.LittleEndian.Uint16(data[itor:]))
+	r.CompressType = compressor.CompressType(binary.LittleEndian.Uint16(data[itor:]))
 	itor += Uint16Size
 
 	r.Method, size = readString(data[itor:])

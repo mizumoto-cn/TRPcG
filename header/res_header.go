@@ -24,11 +24,11 @@ import (
 // |    uint16    | uvarint | uvarint+string |    uvarint  |  uint32  |
 type ResponseHeader struct {
 	sync.RWMutex
-	CompressType CompressType // uint16
-	ID           uint64       // response id
-	Error        string       // error info
-	ResponseLen  uint32       // Length of the response body
-	CheckSum     uint32       // for check
+	CompressType compressor.CompressType // uint16
+	ID           uint64                  // response id
+	Error        string                  // error info
+	ResponseLen  uint32                  // Length of the response body
+	CheckSum     uint32                  // for check
 }
 
 // Marshal() encode response header into byte slice
@@ -65,7 +65,7 @@ func (r *ResponseHeader) Unmarshal(data []byte) (err error) {
 	}()
 
 	itor, size := 0, 0
-	r.CompressType = CompressType(binary.LittleEndian.Uint16(data[itor:]))
+	r.CompressType = compressor.CompressType(binary.LittleEndian.Uint16(data[itor:]))
 	itor += Uint16Size
 
 	r.ID, size = binary.Uvarint(data[itor:])
