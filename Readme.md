@@ -6,6 +6,7 @@
 [![Build](https://github.com/mizumoto-cn/TRPG/actions/workflows/master.yml/badge.svg?branch=master)](https://github.com/mizumoto-cn/TRPG/actions)
 [![Go Report Card](https://goreportcard.com/badge/github.com/mizumoto-cn/TRPcG)](https://goreportcard.com/report/github.com/mizumoto-cn/TRPcG)
 [![CodeFactor](https://www.codefactor.io/repository/github/mizumoto-cn/trpcg/badge)](https://www.codefactor.io/repository/github/mizumoto-cn/trpcg)
+[![codecov](https://codecov.io/gh/mizumoto-cn/TRPcG/branch/master/graph/badge.svg?token=EUNLUQCQ10)](https://codecov.io/gh/mizumoto-cn/TRPcG)
 ![License](https://img.shields.io/badge/Go%20version-1.18.3-green)
 <!-- markdownlint-disable no-hard-tabs -->
 
