@@ -41,6 +41,7 @@ func (this *TestService) Mul(args *Request, reply *Response) error {
 // Div division
 func (this *TestService) Div(args *Request, reply *Response) error {
 	if args.B == 0 {
+		reply.C = 0
 		return errors.New("divided by zero")
 	}
 	reply.C = args.A / args.B

@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"log"
 	"net"
+	"net/rpc"
 	"testing"
 
 	"github.com/mizumoto-cn/TRPcG/compressor"
@@ -116,16 +117,16 @@ func Test_Client_Call(t *testing.T) {
 				nil,
 			},
 		},
-		// {
-		// 	client,
-		// 	"Arith-5",
-		// 	"ArithService.Div",
-		// 	&message.ArithRequest{A: 1, B: 0},
-		// 	expect{
-		// 		nil,
-		// 		rpc.ServerError("divided by zero"),
-		// 	},
-		// },
+		{
+			client,
+			"Arith-5",
+			"ArithService.Div",
+			&message.ArithRequest{A: 1, B: 0},
+			expect{
+				&message.ArithResponse{C: 0},
+				rpc.ServerError("divided by zero"),
+			},
+		},
 	}
 	for _, c := range cases {
 		t.Run(c.name, func(t *testing.T) {
