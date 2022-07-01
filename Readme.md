@@ -27,11 +27,11 @@ It's also a example `net/rpc`-based RPC framework which can help people better u
 ## Install & Quick Start
 
 - install `protoc` at <https://github.com/google/protobuf/releases>
-- install `protoc-gen-go` and `proto-gen`
+- install `protoc-gen-go` and `proto-gen-trpcg@latest`
 
 ```bash
 go install github.com/golang/protobuf/protoc-gen-go
-go install github.com/mizumoto-cn/TRPcG/proto-gen
+go install github.com/mizumoto-cn/TRPcG/proto-gen-trpcg@latest
 ```
 
 Then you'll need to create a `arith.proto` file to define the rpc services.
