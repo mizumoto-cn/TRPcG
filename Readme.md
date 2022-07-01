@@ -85,7 +85,7 @@ You can choose to use 'gzip', 'snappy', 'zlib', or 'raw' to compress the data.
 Like:
 
 ```golang
-import "github.com/zehuamama/tinyrpc/compressor"
+import "github.com/mizumoto-cn/TRPcG/compressor"
 
 ...
 client := tinyrpc.NewClient(conn, tinyrpc.WithCompress(compressor.Gzip))
