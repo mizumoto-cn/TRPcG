@@ -44,6 +44,41 @@ protoc --trpcg_out=. arith.proto --go_out=. arith.proto
 
 Two files will be generated in the directory `message`: `arith.pb.go` and `arith.svr.go`
 
+You shall edit the `arith.svr.go` file to implement the rpc services:
+
+```golang
+// Add addition
+func (this *ArithService) Add(args *ArithRequest, reply *ArithResponse) error {
+	// define your service ...
+	reply.C = args.A + args.B
+	return nil
+}
+
+// Sub subtraction
+func (this *ArithService) Sub(args *ArithRequest, reply *ArithResponse) error {
+	// define your service ...
+	reply.C = args.A - args.B
+	return nil
+}
+
+// Mul multiplication
+func (this *ArithService) Mul(args *ArithRequest, reply *ArithResponse) error {
+	// define your service ...
+	reply.C = args.A * args.B
+	return nil
+}
+
+// Div division
+func (this *ArithService) Div(args *ArithRequest, reply *ArithResponse) error {
+	// define your service ...
+	if args.B == 0 {
+		return errors.New("divided by zero")
+	}
+	reply.C = args.A / args.B
+	return nil
+}
+```
+
 Then you need a new `main.go` like [main.go.bak](main.go.bak)
 
 > Noted that you'll need to change the import `"demo/message"` to `"github.com/mizumoto-cn/TRPcG/testing/message"` in `main.go`
