@@ -27,7 +27,7 @@ It's also a example `net/rpc`-based RPC framework which can help people better u
 ## Install & Quick Start
 
 - install `protoc` at <https://github.com/google/protobuf/releases>
-- install `protoc-gen-go` and `proto-gen-trpcg`
+- install `protoc-gen-go` and `protoc-gen-trpcg`
 
 ```bash
 go install github.com/golang/protobuf/protoc-gen-go
