@@ -46,7 +46,9 @@ Two files will be generated in the directory `message`: `arith.pb.go` and `arith
 
 Then you need a new `main.go` like [main.go.bak](main.go.bak)
 
-After that you can implement your rpc client.
+> Noted that you'll need to change the import `"demo/message"` to `"github.com/mizumoto-cn/TRPcG/testing/message"` in `main.go`
+
+After that you can implement your rpc client like [clientmain.go.bak](clientmain.go.bak):
 
 ```golang
 ...
@@ -61,6 +63,13 @@ res := &message.ArithResponse{}
 err = client.Call("Arith.Add", &req, &res)
 log.Printf("%d + %d = %d, %v", req.A, req.B, res.C, err)
 ...
+```
+
+You may suppose to see the result like:
+
+```bash
+PS D:\Reposits\Tiny-RPc-Go\testing\client> go run .
+2023/10/15 12:26:00 Arith.Add(20, 5): 25 ,Error: <nil>
 ```
 
 You may also use `AsyncCall` to get a asynchronous return in the form of `*rpc.Call`
@@ -88,7 +97,7 @@ Like:
 import "github.com/mizumoto-cn/TRPcG/compressor"
 
 ...
-client := tinyrpc.NewClient(conn, tinyrpc.WithCompress(compressor.Gzip))
+client := TRPcG.NewClient(conn, TRPcG.WithCompress(compressor.Gzip))
 ```
 
 ### Serializer
